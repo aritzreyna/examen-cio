@@ -28,12 +28,17 @@
     <div class="ath3">i
     </div>-->
     <header>
-    	<nav class="menu">
+    	<div class="logo-div">
+        	<h1>
+            	<a href="index.php"><img src="img/favicon_160.png" width="100%"><span>LaLiga Stats</span></a>
+            </h1>
+        </div>
+        <nav class="menu">
         	<ul class="menu-ul">
-            	<li class="menu-li"><a class="menu-a" href="index.php">Inicio</a></li>
-                <li class="menu-li"><a class="menu-a" href="">Equipos</a></li>
-                <li class="menu-li"><a class="menu-a" href="">Jugadores</a></li>
-                <li class="menu-li"><a class="menu-a" href="">Nosotros</a></li>
+            	<li class="menu-li"><a class="menu-a menu-a-active" href="index.php">Inicio</a></li>
+                <li class="menu-li"><a class="menu-a menu-a-no" href="">Equipos</a></li>
+                <li class="menu-li"><a class="menu-a menu-a-no" href="">Jugadores</a></li>
+                <li class="menu-li"><a class="menu-a menu-a-no" href="">Nosotros</a></li>
             </ul>
         </nav>
     </header>
