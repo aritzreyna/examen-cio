@@ -6,7 +6,6 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/png" href="img/favicon_160.png">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Slabo+27px" rel="stylesheet">
-
 </head>
 
 <body>
@@ -49,17 +48,10 @@
     			Destacados de la semana
     		</h2>
     		<div class="form-player">
-				<div class="form-photo">
-					<img src="img/willy.jpg" alt="Iñaki Williams" width="100%">
-				</div>
-				<div class="form-player-detail">
-					<h3 class="in-form-title">Jugador en forma</h3>
-					<h3 class="player-name">Iñaki Williams</h3>
-					
-				</div>
+
 			</div>
 			<div class="form-team">
-				
+
 			</div>
     	</div>
 			

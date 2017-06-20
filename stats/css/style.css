@@ -32,7 +32,7 @@ ul, li{
 	margin:0 auto;
 }
 a,a:visited{
-	color:#B7C0C4;
+	color:#B5C2CC;
 	text-decoration:none;
 }
 
@@ -61,7 +61,7 @@ header{
 			vertical-align:middle;
 		}
 			h1 a{
-				color:#6E7D85 !important;
+				color:#4B5862 !important;
 				display:block;
 				position:relative;
 				box-sizing:content-box;
@@ -118,7 +118,7 @@ header{
 				}
 				.menu-a-active{
 					box-sizing:border-box;
-					color:#6E7D85 !important;
+					color:#4B5862 !important;
 				}
 				.menu-a-active::after{
 					bottom:0 !important;
@@ -145,3 +145,95 @@ header{
 				.menu-a:hover{
 					color:#6E7D85;
 				}
+
+main{
+	width:1200px;
+	padding:0;
+	margin: 0 auto;
+}
+.in-form{
+	width:100%;
+}
+.title-index{
+	text-transform: uppercase;
+	font-size: 45px;
+	text-align: center;
+	width: 100%;
+	color: #97ABB9;
+}
+		.form-player{
+			width:50%;
+			height:100%;
+			box-sizing: border-box;
+			border: solid 1px #000;
+			float: left;
+		}
+.form-photo{
+	border-radius: 100%;
+	overflow: hidden;
+	width:200px;
+	float:left;
+}
+.form-player-detail{
+	float: left;
+	padding-left: 30px;
+}
+.in-form-title{
+	text-transform: uppercase;
+	color: #B5C2CC;
+	font-size: 30px;
+	box-sizing: border-box;
+	line-height: 1px;
+	
+}
+.player-name{
+	color: #4B5862;
+	font-size: 30px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+		.form-team{
+			width:50%;
+			box-sizing: border-box;
+			border: solid 1px #AAA;
+			float:left;
+		}
+
+
+
+/*------------- GOOGLE ICON FONT -----------*/
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+    local('MaterialIcons-Regular'),
+    url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+    url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+    url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+}
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
