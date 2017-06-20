@@ -49,14 +49,57 @@
     			Destacados de la semana
     		</h2>
     		<div class="form-player">
-				<div class="form-photo">
-					<img src="img/willy.jpg" alt="Iñaki Williams" width="100%">
-				</div>
-				<div class="form-player-detail">
-					<h3 class="in-form-title">Jugador en forma</h3>
-					<h3 class="player-name">Iñaki Williams</h3>
-					
-				</div>
+				<div class="main-info">
+                    <div class="form-photo">
+                        <img src="img/willy.jpg" alt="Iñaki Williams" width="100%">
+                    </div>
+                    <div class="form-player-detail">
+                        <h3 class="in-form-title">Jugador en forma</h3>
+                        <h3 class="player-name">Iñaki Williams</h3>
+                        
+                    </div>
+                </div>
+                <div class="stats-container">
+                	<div class="table-player-index">
+                      <div class="stats-table-row">
+                        <div class="stats-table-cell match-title">
+                        	<img src="img/Club_Athletic_Bilbao_logo.svg" width="100%"> - <img src="img/Real_Sociedad_logo.svg" width="100%">
+                        </div>
+                        <div class="stats-table-cell">T</div>
+                        <div class="stats-table-cell">TP</div>
+                        <div class="stats-table-cell">G</div>
+                        <div class="stats-table-cell">FC</div>
+                        <div class="stats-table-cell">FR</div>
+                        <div class="stats-table-cell">TA</div>
+                        <div class="stats-table-cell">TR</div>
+                        <div class="stats-table-cell">RI</div>
+                        <div class="stats-table-cell">RC</div>
+                        <div class="stats-table-cell">A</div>
+                        <div class="stats-table-cell">CI</div>
+                        <div class="stats-table-cell">CC</div>
+                        <div class="stats-table-cell">CD</div>
+                        <div class="stats-table-cell">CG</div>
+                      </div>
+                      <div class="stats-table-row">
+                        <div class="match-stats stats-value">3 - 1</div>
+                        <div class="stats-table-cell stats-value">5</div>
+                        <div class="stats-table-cell stats-value">3</div>
+                        <div class="stats-table-cell stats-value">1</div>
+                        <div class="stats-table-cell stats-value">3</div>
+                        <div class="stats-table-cell stats-value">5</div>
+                        <div class="stats-table-cell stats-value">1</div>
+                        <div class="stats-table-cell stats-value">0</div>
+                        <div class="stats-table-cell stats-value">10</div>
+                        <div class="stats-table-cell stats-value">7</div>
+                        <div class="stats-table-cell stats-value">1</div>
+                        <div class="stats-table-cell stats-value">10</div>
+                        <div class="stats-table-cell stats-value">5</div>
+                        <div class="stats-table-cell stats-value">3</div>
+                        <div class="stats-table-cell stats-value">1</div>
+                      </div>
+                    </div>
+
+                </div>
 			</div>
 			<div class="form-team">
 				
