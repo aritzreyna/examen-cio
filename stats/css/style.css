@@ -33,7 +33,7 @@ ul, li{
 }
 a,a:visited{
 	color:#B5C2CC;
-	text-decoration:none;
+	text-decoration:none !important;
 }
 
 body{
@@ -53,24 +53,26 @@ header{
 		margin-left:50px;
 		box-sizing:border-box;
 	}
-		h1{
+		.title-h1{
 			display:table;
+			font-family:'Open Sans', sans serif;
+			font-weight:600;
 			margin:0;
 			width:400px;
 			box-sizing:border-box;
 			vertical-align:middle;
 		}
-		h1 a:hover img{
+		.title-h1 a:hover img{
 			transform:rotate(360deg);
 			transition: all ease-in-out 1.3s
 		}
-			h1 a{
+			.title-h1 a{
 				color:#4B5862 !important;
 				display:block;
 				position:relative;
 				box-sizing:content-box;
 			}
-				h1 img{
+				.title-h1 img{
 					width:50px;
 					position:absolute;
 					margin:8px 10px 8px 10px;
@@ -79,7 +81,7 @@ header{
 					left:0;
 					right:0;
 				}
-				h1 span{
+				.title-h1 span{
 					display:block;
 					position:absolute;
 					line-height:60px;
@@ -119,6 +121,8 @@ header{
 					font-weight:600;
 					transition:all ease-out .2s;
 					box-sizing:border-box;
+					color:#B5C2CC;
+					text-decoration:none !important;
 				}
 				.menu-a-active{
 					box-sizing:border-box;
@@ -160,17 +164,20 @@ main{
 	}
 		.title-index{
 			text-transform: uppercase;
+			margin-top:50px;
 			font-size: 45px;
 			text-align: center;
 			width: 100%;
 			color: #97ABB9;
+			font-family:'Open Sans', sans serif;
+			font-weight:600;
 		}
 		.form-player{
 			width:50%;
 			height:100%;
 			box-sizing: border-box;
 			float: left;
-			margin-top:50px;
+			margin-top:70px;
 			padding:0 20px;
 			border-right:1px solid #DAE4E8;
 		}
@@ -181,7 +188,10 @@ main{
 				border-radius: 100%;
 				overflow: hidden;
 				width:200px;
+				height:200px;
 				float:left;
+				box-shadow:1px 1px 5px rgba(102,102,102,.75);
+				margin:5px;
 			}
 			.form-player-detail{
 				float: left;
@@ -192,15 +202,64 @@ main{
 					color: #B5C2CC;
 					font-size: 30px;
 					box-sizing: border-box;
-					line-height: 1px;
+					-webkit-margin-after:0;
+					-webkit-margin-before:0;
+					font-family:'Open Sans', sans serif;
+					font-weight:400;
 					
 				}
 				.player-name{
-					color: #4B5862;
+					font-family:'Open Sans', sans serif;
+					font-weight:600;
+					/*overflow:hidden;*/
 					font-size: 30px;
 					box-sizing: border-box;
-					line-height: 20px;
+					-webkit-margin-after:0;
+					-webkit-margin-before:0;
+					margin-top:15px;
 				}
+					.player-name a{
+						color:#647582;
+						position:relative;
+						overflow:hidden;
+						transition:all ease-out .3s;
+					}
+					.player-name a:hover{
+						color: #4B5862;
+					}
+				.players-team{
+					color:#97abb9;
+					font-size:20px;
+					-webkit-margin-after:0;
+					-webkit-margin-before:0;
+					display:inline-block;
+					vertical-align:middle;
+					margin-top:15px;
+				}
+					.players-team img{
+						width:22px;
+						display:inline-block;
+						vertical-align:middle;
+					}
+					.players-team span{
+						display:inline-block;
+						vertical-align:middle;
+						
+					}
+				.players-info{
+					color:#97abb9;
+					-webkit-margin-after:0;
+					-webkit-margin-before:0;
+					font-size:20px !important;
+					margin-top:5px;
+				}
+					.icon-info{
+						vertical-align:middle;
+						font-size:20px !important;
+					}
+					.players-info span{
+						vertical-align:middle;
+					}
 		.stats-container{
 			margin-top:50px;
 		}
@@ -259,10 +318,38 @@ main{
 			box-sizing: border-box;
 			border-left:1px solid #DAE4E8;
 			float:left;
-			margin-top:50px;
+			margin-top:70px;
+			padding:0 20px;
 		}
+			.form-team-photo-container{
+				width:200px;
+				display:block;
+				margin:5px;
+				float:left;
+				box-sizing:border-box;
+				overflow:hidden;
+			}
+			.form-team-photo{
+				height:200px;
+				max-height:200px;
+				max-width:200px;
+			}
 
 
+/* Tooltip */
+.test + .tooltip > .tooltip-inner {
+    background-color: #4B5862; 
+    color: #FFFFFF; 
+    border: 1px solid #4B5862;
+    padding: 5px;
+    font-size: 12px;
+	font-family:'Open Sans', sans serif;
+	font-weight:400;
+}
+/* Tooltip on top */
+  .test + .tooltip.top > .tooltip-arrow {
+      border-top: 5px solid #4B5862;
+  }
 
 /*------------- GOOGLE ICON FONT -----------*/
 @font-face {
