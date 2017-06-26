@@ -183,7 +183,21 @@ main{
 		}
 		.main-info{
 			overflow:hidden;
+			position:relative;
 		}
+			.numero-en-forma{
+				position:absolute;
+				right:0;
+				bottom:-70px;
+				z-index:-1;
+				text-align:right;
+				font-size:200px;
+				font-weight:600;
+				color:#E2F0FA;
+			}
+				.numero-en-forma p{
+					
+				}
 			.form-photo{
 				border-radius: 100%;
 				overflow: hidden;
@@ -335,6 +349,38 @@ main{
 				max-width:200px;
 			}
 
+
+/*--------------------------- LOGIN ---------------------------*/
+#login{
+	margin:0 auto;
+	width:400px;
+	display:block;
+	box-sizing:border-box;
+	border:#000 solid 2px;
+	overflow:hidden;
+}
+	#login label{
+		float:left;
+		clear:both;
+		color:#4B5862;
+	}
+	#login input[name="email"] , #login input[name="password"]{
+		float:left;
+		clear:both;
+		width:100%;
+		padding:10px 5px 5px 5px;
+		border:none;
+		border-bottom:2px solid #000;
+	}
+	#login input[type="submit"]{
+		width:100%;
+		padding:10px;
+		text-transform:uppercase;
+		color:#4B5862;
+	}
+	#login input[type="submit"]:hover{
+		
+	}
 
 /* Tooltip */
 .test + .tooltip > .tooltip-inner {
