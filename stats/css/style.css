@@ -353,34 +353,108 @@ main{
 /*--------------------------- LOGIN ---------------------------*/
 #login{
 	margin:0 auto;
+	padding-top:50px;
 	width:400px;
 	display:block;
 	box-sizing:border-box;
-	border:#000 solid 2px;
 	overflow:hidden;
 }
-	#login label{
-		float:left;
-		clear:both;
-		color:#4B5862;
-	}
 	#login input[name="email"] , #login input[name="password"]{
 		float:left;
+		background:#FCFDFE;
 		clear:both;
 		width:100%;
 		padding:10px 5px 5px 5px;
+		margin:15px 0;
 		border:none;
-		border-bottom:2px solid #000;
+		border-bottom:2px solid #E2F0FA;
+		display:block;
+		color:#4B5862;
+		font-size:20px;
+		box-sizing:border-box !important;
+		transition:all ease-out .3s;
+	}
+	#login input[name="email"]::-webkit-input-placeholder , #login input[name="password"]::-webkit-input-placeholder{
+		color:#97ABB9;
+	}
+	#login input[name="email"]:focus , #login input[name="password"]:focus{
+		outline:none;
+		border-bottom:#97ABB9 1px solid;
+		box-shadow:0px 1px 1px #97ABB9;
 	}
 	#login input[type="submit"]{
+		margin-top:20px;
 		width:100%;
 		padding:10px;
 		text-transform:uppercase;
 		color:#4B5862;
+		background:rgb(226, 240, 250);
 	}
 	#login input[type="submit"]:hover{
-		
+		background:#97ABB9;
 	}
+
+
+/*--------------------------- NEW PLAYER ---------------------------*/
+.add-player{
+	overflow:hidden;
+	margin:0 auto;
+	width:940px;
+	border:solid 1px #000;
+}
+form[name="new-player-form"]{
+	width:100%;
+	border:solid 5px #9587;
+}
+form[name="new-player-form"] input, select, label {
+	margin:10px 5px;
+	float:left;
+	background:#FCFDFE;
+	clear:both;
+	width:50%;
+	padding:10px 5px 5px 5px;
+	margin:15px 0;
+	border:none;
+	border-bottom:2px solid #E2F0FA;
+	display:block;
+	color:#4B5862;
+	font-size:20px;
+	box-sizing:border-box !important;
+	transition:all ease-out .3s;
+	overflow:hidden;
+}
+	form[name="new-player-form"] input:focus{
+		outline:none;
+		border-bottom:#97ABB9 1px solid;
+		box-shadow:0px 1px 1px #97ABB9;
+	}
+	input[type="select"] , input[type="file"] , input[type="radio"]{
+		border:none !important;
+		box-shadow:none !important;
+	}
+	form[name="new-player-form"] input[type="submit"]{
+		margin-top:20px;
+		width:100%;
+		padding:10px;
+		text-transform:uppercase;
+		color:#4B5862;
+		background:rgb(226, 240, 250);
+		transition:all .3s ease-out;
+	}
+	form[name="new-player-form"] input[type="submit"]:hover{
+		background:#97ABB9;
+	}
+		input[name="numero"] , input[name="edad"]{
+			width:auto !important;
+		}
+		form[name="new-player-form"] label{
+			border:none;
+			float:left;
+			text-align:left;
+			width:100px;
+			border:2px #000 solid;
+		}
+
 
 /* Tooltip */
 .test + .tooltip > .tooltip-inner {
@@ -432,4 +506,41 @@ main{
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+/*------------- COOKIES -----------*/
+#barraaceptacion {
+    display:none;
+    position:fixed;
+    left:0px;
+    right:0px;
+    bottom:0px;
+    padding-bottom:20px;
+    width:100%;
+    text-align:center;
+    min-height:40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color:#fff;
+    z-index:99999;
+}
+ 
+.inner {
+    width:100%;
+    position:absolute;
+    padding-left:5px;
+    font-family:verdana;
+    font-size:12px;
+    top:30%;
+}
+ 
+.inner a.ok {
+    padding:4px;
+    color:#00ff2e;
+    text-decoration:none;
+}
+ 
+.inner a.info {
+    padding-left:5px;
+    text-decoration:none;
+    color:#faff00;
 }
