@@ -1,3 +1,5 @@
+<?php require_once('../Connections/laligastats.php'); ?>
+<?php require_once('../Connections/laligastats.php'); ?>
 <?php
 if (!isset($_SESSION)) {
   session_start();
@@ -43,8 +45,45 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
   exit;
 }
 ?>
-<?php require_once('../Connections/laligastats.php'); ?>
-<?php require_once('../Connections/laligastats.php'); ?>
+<?php
+if (!function_exists("GetSQLValueString")) {
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+{
+  if (PHP_VERSION < 6) {
+    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
+  }
+
+  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
+
+  switch ($theType) {
+    case "text":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;    
+    case "long":
+    case "int":
+      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
+      break;
+    case "double":
+      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
+      break;
+    case "date":
+      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
+      break;
+    case "defined":
+      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
+      break;
+  }
+  return $theValue;
+}
+}
+
+mysql_select_db($database_laligastats, $laligastats);
+$query_lista = "SELECT jugadores.* , equipos.* FROM jugadores , equipos WHERE jugadores.id_equipo = equipos.id_equipo ORDER BY equipos.nombre_equipo ASC";
+$lista = mysql_query($query_lista, $laligastats) or die(mysql_error());
+$row_lista = mysql_fetch_assoc($lista);
+$totalRows_lista = mysql_num_rows($lista);
+?>
+
 <!doctype html>
 <html>
 <head>
@@ -101,36 +140,34 @@ if (!((isset($_SESSION['MM_Username'])) && (isAuthorized("",$MM_authorizedUsers,
     <main>
     	<div class="in-form">
     		<h2 class="title-index">
-    			Intranet
-    		</h2>
-            <div class="intranet-grid">
-                <div class="box-intranet">
-                    <a href="list-players.php">
-                        <h3 class="grid-title-intranet">Jugadores</h3>
-                        <div class="icon-intranet">
-                            <img src="../img/shirt.svg" alt="Jugadores" width="100%">
-                        </div>
-                    </a>
-                </div>
-                <div class="box-intranet middle-box">
-                    <a href="list-teams.php">
-                        <h3 class="grid-title-intranet">Equipos</h3>
-                        <div class="icon-intranet">
-                            <img src="../img/football-shield.svg" alt="Equipos" width="100%">
-                        </div>
-                    </a>
-                </div>
-                <div class="box-intranet">
-                    <a href="profile.php">
-                        <h3 class="grid-title-intranet">Admin</h3>
-                        <div class="icon-intranet">
-                            <img src="../img/football.svg" alt="Admin" width="100%">
-                        </div>
-                    </a>
-                </div>
+    			Jugadores
+   		  </h2>
+            <div class="container-jugadores">
+            	<?php do { ?>
+           	    <div class="jugadores-row">
+            	    <div class="jugadores-foto">
+            	      <img src="../img/<?php echo $row_lista['foto_jugador']; ?>" width="100%">
+            	      </div>
+            	    <div class="jugadores-nombre">
+            	      <p><?php echo $row_lista['numero']; ?></p>
+            	      <p><?php echo $row_lista['nombre_jugador']; ?></p>
+            	      </div>
+            	    <div class="jugadores-equipo">
+            	      <img src="../img/<?php echo $row_lista['foto_equipo']; ?>" width="100%">
+            	      <p><?php echo $row_lista['nombre_equipo']; ?></p>
+           	        </div>
+            	    <div class="list-jugadores-buttons">
+            	      <a href="mod-player.php?id_jugador=<?php echo $row_lista['id_jugador']; ?>"><i class="material-icons">create</i>Modificar</a>
+            	      <a href="del-player.php?id_jugador=<?php echo $row_lista['id_jugador']; ?>"><i class="material-icons">delete</i>Eliminar</a>
+           	        </div>
+           	      </div>
+            	  <?php } while ($row_lista = mysql_fetch_assoc($lista)); ?>
             </div>
-    	</div>
+   	  </div>
 			
     </main>
 </body>
 </html>
+<?php
+mysql_free_result($lista);
+?>

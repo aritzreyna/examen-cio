@@ -1,3 +1,5 @@
+<?php require_once('../Connections/laligastats.php'); ?>
+<?php require_once('../Connections/laligastats.php'); ?>
 <?php
 if (!isset($_SESSION)) {
   session_start();
@@ -80,7 +82,7 @@ if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
-if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
+if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "mod-player")) {
   $updateSQL = sprintf("UPDATE jugadores SET nombre_jugador=%s, nombre_completo_jugador=%s, edad=%s, posicion=%s, id_equipo=%s, numero=%s, foto_jugador=%s, en_forma_jugador=%s WHERE id_jugador=%s",
                        GetSQLValueString($_POST['nombre_jugador'], "text"),
                        GetSQLValueString($_POST['nombre_completo_jugador'], "text"),
@@ -119,8 +121,7 @@ $jugador = mysql_query($query_jugador, $laligastats) or die(mysql_error());
 $row_jugador = mysql_fetch_assoc($jugador);
 $totalRows_jugador = mysql_num_rows($jugador);
 ?>
-<?php require_once('../Connections/laligastats.php'); ?>
-<?php require_once('../Connections/laligastats.php'); ?>
+
 <!doctype html>
 <html>
 <head>
@@ -177,115 +178,61 @@ $totalRows_jugador = mysql_num_rows($jugador);
     <main>
     	<div class="in-form">
     		<h2 class="title-index">
-    			Destacados de la semana
+    			Actualizar jugador
     		</h2>
-    		<div class="form-player">
-				<div class="main-info">
-                	<div class="numero-en-forma"><p></p>
-                    </div>
-                    <div class="form-photo">
-                        <img width="100%">
-                    </div>
-                    <div class="form-player-detail">
-                        <h3 class="in-form-title">Jugador en forma</h3>
-                        <h3 class="player-name"><a href="#"></a></h3>
-                        <h2 class="players-team"><img width="100%"> <span></span></h2>
-                        <h2 class="players-info"><i class="material-icons icon-info">info_outline</i><span> años. </span></h2>
-                    </div>
-                </div>
-                <form method="post" name="form1" action="<?php echo $editFormAction; ?>">
-                  <table align="center">
-                    <tr valign="baseline">
-                      <td nowrap align="right">Nombre / Apodo:</td>
-                      <td><input type="text" name="nombre_jugador" value="" size="32"></td>
-                    </tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">Nombre completo:</td>
-                      <td><input type="text" name="nombre_completo_jugador" value="" size="32"></td>
-                    </tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">Edad:</td>
-                      <td><input type="text" name="edad" value="" size="32"></td>
-                    </tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">Posición:</td>
-                      <td><select name="posicion">
-                        <?php 
-do {  
-?>
-                        <option value="<?php echo $row_jugador['posicion']?>" <?php if (!(strcmp($row_jugador['posicion'], $row_jugador['posicion']))) {echo "SELECTED";} ?>><?php echo $row_jugador['posicion']?></option>
-                        <?php
-} while ($row_jugador = mysql_fetch_assoc($jugador));
-?>
-                      </select></td>
-                    <tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">Número:</td>
-                      <td><input type="text" name="numero" value="" size="32"></td>
-                    </tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">Foto del jugador:</td>
-                      <td><input type="text" name="foto_jugador" value="" size="32"></td>
-                    </tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">Destacar:</td>
-                      <td><input type="text" name="en_forma_jugador" value="" size="32"></td>
-                    </tr>
-                    <tr valign="baseline">
-                      <td nowrap align="right">&nbsp;</td>
-                      <td><input type="submit" value="Actualizar registro"></td>
-                    </tr>
-                  </table>
-                  <input type="hidden" name="id_equipo" value="">
-                  <input type="hidden" name="MM_update" value="form1">
-                  <input type="hidden" name="id_jugador" value="<?php echo $row_modificar_stats_jugador['id_jugador']; ?>">
-                </form>
-                <p>&nbsp;</p>
-<div class="stats-container">
-                	<div class="table-player-index">
-                      <div class="stats-table-row">
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Tiros">T</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Tiros a puerta">TP</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Goles">G</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Pases">P</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Asistencias">A</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Faltas cometidas">FC</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Faltas recibidas">FR</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Regates intentados">RI</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Regates completados">RC</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Centros completados">CC</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Tarjetas amarillas">TA</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Tarjetas rojas">TR</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Entradas realizadas">ER</span></div>
-                        <div class="stats-table-cell"><span class="test" data-toggle="tooltip" title="Entradas exitosas">EE</span></div>
-                      </div>
-                      
-                      <script>
-$(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
-});
-</script>
-
-                      <div class="stats-table-row">
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                        <div class="stats-table-cell stats-value"></div>
-                      </div>
-                    </div>
-
-                </div>
-			</div>
+              <form method="post" name="mod-player" action="<?php echo $editFormAction; ?>">
+                <table align="center">
+                  <tr valign="baseline">
+                    <td nowrap align="right">Nombre / Apodo:</td>
+                    <td><input type="text" name="nombre_jugador" value="<?php echo htmlentities($row_jugador['nombre_jugador'], ENT_COMPAT, 'utf-8'); ?>" size="32"></td>
+                  </tr>
+                  <tr valign="baseline">
+                    <td nowrap align="right">Nombre completo:</td>
+                    <td><input type="text" name="nombre_completo_jugador" value="<?php echo htmlentities($row_jugador['nombre_completo_jugador'], ENT_COMPAT, 'utf-8'); ?>" size="32"></td>
+                  </tr>
+                  <tr valign="baseline">
+                    <td nowrap align="right">Edad:</td>
+                    <td><input type="text" name="edad" value="<?php echo htmlentities($row_jugador['edad'], ENT_COMPAT, 'utf-8'); ?>" size="2" maxlength="2"></td>
+                  </tr>
+                  <tr valign="baseline">
+                    <td nowrap align="right">Posición:</td>
+                    <td><select name="en_forma_jugador">
+                    	<option value="Portero" selected>Portero</option>
+                        <option value="Defensa">Defensa</option>
+                        <option value="Centrocampista">Centrocampista</option>
+                        <option value="Delantero">Delantero</option>
+                    </select></td>
+                  </tr>
+                  <tr valign="baseline">
+                    <td nowrap align="right">Número:</td>
+                    <td><input type="text" name="numero" value="<?php echo htmlentities($row_jugador['numero'], ENT_COMPAT, 'utf-8'); ?>" size="2" maxlength="2"></td>
+                  </tr>
+                  <tr valign="baseline">
+                    <td nowrap align="right">Foto:</td>
+                    <td><input type="file" name="foto_jugador" value="../img/<?php echo htmlentities($row_jugador['foto_jugador'], ENT_COMPAT, 'utf-8'); ?>" size="32"></td>
+                  </tr>
+                  <tr valign="baseline">
+                    <td nowrap align="right">Destacado:</td>
+                    
+                  </tr>
+                  <tr valign="baseline">
+                    <td><label>
+                          <input type="radio" name="en_forma_jugador" value="y" id="en_forma_jugador_0">
+                          Sí</label></td>
+                      </tr>
+                      <tr>
+                        <td><label>
+                          <input type="radio" name="en_forma_jugador" value="n" id="en_forma_jugador_1" checked>
+                          No</label></td>
+                          </tr>
+                    <td><input type="submit" value="Actualizar jugador"></td>
+                  </tr>
+                </table>
+                <input type="hidden" name="id_jugador" value="<?php echo $row_jugador['id_jugador']; ?>">
+                <input type="hidden" name="id_equipo" value="<?php echo htmlentities($row_jugador['id_equipo'], ENT_COMPAT, 'utf-8'); ?>">
+                <input type="hidden" name="MM_update" value="mod-player">
+                <input type="hidden" name="id_jugador" value="<?php echo $row_jugador['id_jugador']; ?>">
+              </form>
     	</div>
 			
     </main>
