@@ -81,6 +81,10 @@ mysql_select_db($database_laligastats, $laligastats);
 $query_lista = "SELECT jugadores.* , equipos.* FROM jugadores , equipos WHERE jugadores.id_equipo = equipos.id_equipo ORDER BY equipos.nombre_equipo ASC";
 $lista = mysql_query($query_lista, $laligastats) or die(mysql_error());
 $row_lista = mysql_fetch_assoc($lista);
+$totalRows_lista = mysql_num_rows($lista);mysql_select_db($database_laligastats, $laligastats);
+$query_lista = "SELECT jugadores.* , equipos.* FROM jugadores , equipos WHERE jugadores.id_equipo = equipos.id_equipo ORDER BY equipos.nombre_equipo ASC , jugadores.numero ASC";
+$lista = mysql_query($query_lista, $laligastats) or die(mysql_error());
+$row_lista = mysql_fetch_assoc($lista);
 $totalRows_lista = mysql_num_rows($lista);
 ?>
 
@@ -143,22 +147,28 @@ $totalRows_lista = mysql_num_rows($lista);
     			Jugadores
    		  </h2>
             <div class="container-jugadores">
+            	<div class="add-player-button-container">
+                	<a href="new-player.php" class="add-player-button">
+                    	<p><i class="material-icons">add_circle</i></p>
+                        <p>Añadir jugador</p>
+                   	</a>
+                </div>
             	<?php do { ?>
            	    <div class="jugadores-row">
             	    <div class="jugadores-foto">
             	      <img src="../img/<?php echo $row_lista['foto_jugador']; ?>" width="100%">
             	      </div>
             	    <div class="jugadores-nombre">
-            	      <p><?php echo $row_lista['numero']; ?></p>
-            	      <p><?php echo $row_lista['nombre_jugador']; ?></p>
+            	      <p class="jugadores-list-numero"><?php echo $row_lista['numero']; ?></p>
+            	      <p class="jugadores-nombre-title"><?php echo $row_lista['nombre_jugador']; ?></p>
             	      </div>
             	    <div class="jugadores-equipo">
             	      <img src="../img/<?php echo $row_lista['foto_equipo']; ?>" width="100%">
             	      <p><?php echo $row_lista['nombre_equipo']; ?></p>
            	        </div>
             	    <div class="list-jugadores-buttons">
-            	      <a href="mod-player.php?id_jugador=<?php echo $row_lista['id_jugador']; ?>"><i class="material-icons">create</i>Modificar</a>
-            	      <a href="del-player.php?id_jugador=<?php echo $row_lista['id_jugador']; ?>"><i class="material-icons">delete</i>Eliminar</a>
+            	      <a href="mod-player.php?id_jugador=<?php echo $row_lista['id_jugador']; ?>"><i class="material-icons">create</i><p>Modificar</p></a>
+            	      <a href="del-player.php?id_jugador=<?php echo $row_lista['id_jugador']; ?>"><i class="material-icons">delete</i><p>Eliminar</p></a>
            	        </div>
            	      </div>
             	  <?php } while ($row_lista = mysql_fetch_assoc($lista)); ?>
