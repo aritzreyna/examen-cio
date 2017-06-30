@@ -92,7 +92,7 @@ $totalRows_lista = mysql_num_rows($lista);
 <html>
 <head>
 <meta charset="utf-8">
-<title>LaLiga Stats</title>
+<title>Intranet - LaLiga Stats</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

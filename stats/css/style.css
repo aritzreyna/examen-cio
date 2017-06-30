@@ -396,6 +396,33 @@ main{
 
 
 /*--------------------------- INTRANET ---------------------------*/
+.logout{
+		margin-bottom:20px;
+		height:100px;
+		box-sizing:border-box;
+		width:100px;
+		position:absolute;
+		top:80%;
+		right:0;
+		overflow:hidden;
+		border:solid #000 1px;
+	}
+		.logout a{
+			width:auto;
+			text-align:center;
+			position:relative;
+		}
+			.logout i{
+				box-sizing:border-box;
+				margin:0 auto;
+				text-align:center;
+				padding:10px;
+				transition:all .3s ease-out;
+				font-size:75px;
+			}
+			.logout a:hover .logout-icon{
+				transform:rotate(360deg);
+			}
 .intranet-grid{
 	width:940px;
 	box-sizing:border-box;
